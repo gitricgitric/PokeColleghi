@@ -73,4 +73,39 @@ function filterByDepartment() {
         colleagueCard.innerHTML = `
             <img src="${colleague.image}" alt="${colleague.name}">
             <h3>${colleague.name}</h3>
-            <p><strong>Ru
+            <p><strong>Ruolo:</strong> ${colleague.role}</p>
+            <p><strong>Reparto:</strong> ${colleague.department}</p>
+            <p><strong>Skills:</strong> ${colleague.skills.join(", ")}</p>
+            <p><strong>Soprannome:</strong> ${colleague.nickname}</p>
+            <p><strong>Frase tipica:</strong> "${colleague.catchphrase}"</p>
+        `;
+        colleaguesList.appendChild(colleagueCard);
+    });
+}
+
+function filterBySkills() {
+    const skillsTerm = document.getElementById("skills-filter").value.toLowerCase();
+    const filteredColleagues = colleagues.filter(colleague => colleague.skills.some(skill => skill.toLowerCase().includes(skillsTerm)));
+    colleaguesList.innerHTML = "";
+    filteredColleagues.forEach(colleague => {
+        const colleagueCard = document.createElement("div");
+        colleagueCard.classList.add("colleague-card");
+        colleagueCard.innerHTML = `
+            <img src="${colleague.image}" alt="${colleague.name}">
+            <h3>${colleague.name}</h3>
+            <p><strong>Ruolo:</strong> ${colleague.role}</p>
+            <p><strong>Reparto:</strong> ${colleague.department}</p>
+            <p><strong>Skills:</strong> ${colleague.skills.join(", ")}</p>
+            <p><strong>Soprannome:</strong> ${colleague.nickname}</p>
+            <p><strong>Frase tipica:</strong> "${colleague.catchphrase}"</p>
+        `;
+        colleaguesList.appendChild(colleagueCard);
+    });
+}
+
+function randomColleague() {
+    const random = colleagues[Math.floor(Math.random() * colleagues.length)];
+    alert(`Collega del giorno: ${random.name} - ${random.catchphrase}`);
+}
+
+loadColleagues();
