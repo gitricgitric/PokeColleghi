@@ -3,20 +3,22 @@ const colleagues = [
     {
         name: "Mario Rossi",
         role: "Sviluppatore",
-        image: "https://www.example.com/mario.jpg",
-        description: "Mario è un esperto sviluppatore web con una passione per React.js."
+        department: "Tecnologia",
+        skills: ["JavaScript", "React", "Node.js"],
+        hobbies: ["Videogiochi", "Lettura", "Cucina"],
+        nickname: "Super Mario",
+        catchphrase: "Codifica prima, mangia dopo!",
+        image: "https://via.placeholder.com/100"
     },
     {
         name: "Luigi Bianchi",
         role: "Designer",
-        image: "https://www.example.com/luigi.jpg",
-        description: "Luigi è un designer creativo con un occhio per il dettaglio."
-    },
-    {
-        name: "Anna Verdi",
-        role: "Project Manager",
-        image: "https://www.example.com/anna.jpg",
-        description: "Anna è una project manager esperta nella gestione di team agili."
+        department: "Design",
+        skills: ["UI/UX", "Photoshop", "Illustrator"],
+        hobbies: ["Fotografia", "Viaggi", "Cucina"],
+        nickname: "Piccolo Luigi",
+        catchphrase: "Design is life!",
+        image: "https://via.placeholder.com/100"
     }
 ];
 
