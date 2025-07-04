@@ -3,14 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PokéColleghi</title>
+    <title>PokeColleghi</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>PokéColleghi</h1>
+        <h1>PokeColleghi</h1>
         <input type="text" id="search" placeholder="Cerca per nome" oninput="searchColleagues()">
+        <button onclick="randomColleague()">Collega del Giorno</button>
     </header>
+
+    <div id="filters">
+        <label for="department-filter">Filtra per reparto:</label>
+        <select id="department-filter" onchange="filterByDepartment()">
+            <option value="">Tutti</option>
+            <option value="Tecnologia">Tecnologia</option>
+            <option value="Design">Design</option>
+            <!-- Aggiungi altri reparti -->
+        </select>
+
+        <label for="skills-filter">Filtra per skills:</label>
+        <input type="text" id="skills-filter" oninput="filterBySkills()" placeholder="Es. JavaScript">
+    </div>
 
     <div id="colleagues-list" class="colleagues-list">
         <!-- Qui verranno caricati i colleghi -->
