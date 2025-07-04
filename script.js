@@ -1,4 +1,3 @@
-// Dati esempio dei colleghi
 const colleagues = [
     {
         name: "Mario Rossi",
@@ -19,12 +18,12 @@ const colleagues = [
         nickname: "Piccolo Luigi",
         catchphrase: "Design is life!",
         image: "https://via.placeholder.com/100"
-    }
+    },
+    // Aggiungi altri colleghi di esempio
 ];
 
 const colleaguesList = document.getElementById("colleagues-list");
 
-// Funzione per caricare i colleghi
 function loadColleagues() {
     colleaguesList.innerHTML = "";
     colleagues.forEach(colleague => {
@@ -34,14 +33,16 @@ function loadColleagues() {
         colleagueCard.innerHTML = `
             <img src="${colleague.image}" alt="${colleague.name}">
             <h3>${colleague.name}</h3>
-            <p>${colleague.role}</p>
-            <p>${colleague.description}</p>
+            <p><strong>Ruolo:</strong> ${colleague.role}</p>
+            <p><strong>Reparto:</strong> ${colleague.department}</p>
+            <p><strong>Skills:</strong> ${colleague.skills.join(", ")}</p>
+            <p><strong>Soprannome:</strong> ${colleague.nickname}</p>
+            <p><strong>Frase tipica:</strong> "${colleague.catchphrase}"</p>
         `;
         colleaguesList.appendChild(colleagueCard);
     });
 }
 
-// Funzione per filtrare i colleghi
 function searchColleagues() {
     const searchTerm = document.getElementById("search").value.toLowerCase();
     const filteredColleagues = colleagues.filter(colleague => colleague.name.toLowerCase().includes(searchTerm));
@@ -49,16 +50,27 @@ function searchColleagues() {
     filteredColleagues.forEach(colleague => {
         const colleagueCard = document.createElement("div");
         colleagueCard.classList.add("colleague-card");
-
         colleagueCard.innerHTML = `
             <img src="${colleague.image}" alt="${colleague.name}">
             <h3>${colleague.name}</h3>
-            <p>${colleague.role}</p>
-            <p>${colleague.description}</p>
+            <p><strong>Ruolo:</strong> ${colleague.role}</p>
+            <p><strong>Reparto:</strong> ${colleague.department}</p>
+            <p><strong>Skills:</strong> ${colleague.skills.join(", ")}</p>
+            <p><strong>Soprannome:</strong> ${colleague.nickname}</p>
+            <p><strong>Frase tipica:</strong> "${colleague.catchphrase}"</p>
         `;
         colleaguesList.appendChild(colleagueCard);
     });
 }
 
-// Carica inizialmente i colleghi
-loadColleagues();
+function filterByDepartment() {
+    const department = document.getElementById("department-filter").value;
+    const filteredColleagues = department ? colleagues.filter(colleague => colleague.department === department) : colleagues;
+    colleaguesList.innerHTML = "";
+    filteredColleagues.forEach(colleague => {
+        const colleagueCard = document.createElement("div");
+        colleagueCard.classList.add("colleague-card");
+        colleagueCard.innerHTML = `
+            <img src="${colleague.image}" alt="${colleague.name}">
+            <h3>${colleague.name}</h3>
+            <p><strong>Ru
